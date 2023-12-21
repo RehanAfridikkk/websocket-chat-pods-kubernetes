@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rehanapp-3
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rehanapp-3
+  template:
+    metadata:
+      labels:
+        app: rehanapp-3
+    spec:
+      containers:
+      - name: rehanapp-3
+        image: rehanafridi/rehan-chat-2:1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8080
+        readinessProbe:
+        
